@@ -1,4 +1,4 @@
-package com.huahouye.solrj.example;
+package com.huahouye.solrj.example.client;
 
 import java.io.IOException;
 
