@@ -1,0 +1,1 @@
+cmd /k solr zk -upconfig -z 172.17.194.150:2181/solr -n conf-name -d  conf-template

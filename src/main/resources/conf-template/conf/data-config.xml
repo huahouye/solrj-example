@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<dataConfig>
+	<dataSource type="JdbcDataSource" driver="com.mysql.jdbc.Driver"
+		url="jdbc:mysql://172.17.194.168:8072/miu_order_server?characterEncoding=utf-8"
+		user="item_center_mycat" password="itemcentermycattest" />
+	<document>
+		<entity name="company_order_details" pk="id"
+			query="select id, orders_no, commodity_no from company_order_details limit 0,20000"
+			deltaImportQuery="SELECT id, orders_no, commodity_no from company_order_details WHERE id='${dih.delta.id}'"
+			deltaQuery="SELECT id FROM company_order_details WHERE update_time > '${dih.last_index_time}'">
+			<field column="id" name="id" />
+			<field column="orders_no" name="orders_no" />
+			<field column="commodity_no" name="commodity_no" />
+		</entity>
+	</document>
+</dataConfig>
