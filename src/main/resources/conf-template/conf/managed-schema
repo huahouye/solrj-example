@@ -1001,32 +1001,31 @@
     -->
 	
 	<!-- mmseg4j 中文分析器，中文分词配置 start -->
-	<fieldtype name="textComplex" class="solr.TextField" positionIncrementGap="100">
+	<fieldType name="cn_textComplex" class="solr.TextField" positionIncrementGap="100">
 		<analyzer>
 			<tokenizer class="com.chenlb.mmseg4j.solr.MMSegTokenizerFactory" mode="complex" dicPath="${solr.install.dir:../../../..}/application/dictionary" />
 		</analyzer>
-	</fieldtype>
-	<fieldtype name="textMaxWord" class="solr.TextField" positionIncrementGap="100">
+	</fieldType>
+	<fieldType name="cn_textMaxWord" class="solr.TextField" positionIncrementGap="100">
 		<analyzer>
 			<tokenizer class="com.chenlb.mmseg4j.solr.MMSegTokenizerFactory" mode="max-word" dicPath="${solr.install.dir:../../../..}/application/dictionary" />
 		</analyzer>
-	</fieldtype>
-	<fieldtype name="textSimple" class="solr.TextField" positionIncrementGap="100">
+	</fieldType>
+	<fieldType name="cn_textSimple" class="solr.TextField" positionIncrementGap="100">
 		<analyzer>
 			<tokenizer class="com.chenlb.mmseg4j.solr.MMSegTokenizerFactory" mode="simple" dicPath="${solr.install.dir:../../../..}/application/dictionary" />
 		</analyzer>
-	</fieldtype>
+	</fieldType>
 	<!-- mmseg4j 中文分析器，中文分词配置 end -->
 	
 	<!-- solr 自带 HMMChineseTokenizerFactory 中文分析器，中文分词配置 start -->
-	<fieldtype name="hmmChinese" class="solr.TextField" positionIncrementGap="100">
+	<fieldType name="cn_hmmChinese" class="solr.TextField" positionIncrementGap="100">
 		<analyzer>
 			<tokenizer class="solr.HMMChineseTokenizerFactory"/>
 			<filter class="solr.StopFilterFactory" words="org/apache/lucene/analysis/cn/smart/stopwords.txt"/>
-			<filter class="solr.StopFilterFactory" words="${solr.install.dir:../../../..}/application/dictionary/stopwords.txt"/>
 			<filter class="solr.PorterStemFilterFactory"/>
 		</analyzer>
-	</fieldtype>
+	</fieldType>
 	<!-- solr 自带 HMMChineseTokenizerFactory 中文分析器，中文分词配置 end -->
 
 </schema>
