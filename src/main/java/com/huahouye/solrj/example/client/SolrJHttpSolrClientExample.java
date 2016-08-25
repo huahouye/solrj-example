@@ -15,7 +15,7 @@ import org.apache.solr.common.params.ModifiableSolrParams;
  */
 public class SolrJHttpSolrClientExample {
   public static void main(String[] args) throws SolrServerException, IOException {
-	  String urlString = "http://192.168.191.4:8983/solr/status-center";
+	  String urlString = "http://172.17.194.150:8983/solr/weshop";
 	  SolrClient solr = new HttpSolrClient.Builder(urlString).build();
 
     // http://localhost:8983/solr/spellCheckCompRH?q=epod&spellcheck=on&spellcheck.build=true
