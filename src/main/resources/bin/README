@@ -1,0 +1,5 @@
+1、将同目录下的所有文件上传到部署有 SolrCloud 的任一台服务器上的任意位置，保持目录结构不变即可。
+2、检查和修改 conf-upconf.sh 脚本文件里面的那个 -z 后面的 ip 地址是 SolrCloud 连接的 zookeeper 集群地址中的任一个，
+	正确的 zookeeper 集群地址可以在 /etc/default/solr.in.sh 文件里面 ZK_HOST 查看到。
+3、执行 sh conf-upconf.sh 上传数据源配置文件，执行无错误即可。
+4、lib 下的所有 jar 包都要拷贝到 **每台** SolrCloud 服务器的 /opt/solr/application/lib/ 目录下。
