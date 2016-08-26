@@ -1,4 +1,4 @@
-package com.huahouye.solrj.example.app.config;
+package com.huahouye.solrj.example.client;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -6,13 +6,10 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 
-import com.huahouye.solrj.example.client.SolrJCloudSolrClientExample;
-import com.huahouye.solrj.example.client.SolrJHttpSolrClientExampleImpl;
-
 @Configuration
-@ComponentScan(basePackages = { "com.huahouye.solr" })
+@ComponentScan(basePackages = { "com.huahouye.solrj.example.client" })
 @PropertySource(value = "classpath:config/com/huahouye/solr/example/configuration.properties")
-public class AppConfig {
+public class ClientConfig {
 	/**
 	 * ${…} 的 @Value 注解需要这个
 	 * 
@@ -24,8 +21,8 @@ public class AppConfig {
 	}
 
 	@Bean
-	public SolrJHttpSolrClientExampleImpl solrJHttpSolrClientExampleImpl() {
-		return new SolrJHttpSolrClientExampleImpl();
+	public SolrJHttpSolrClientExample solrJHttpSolrClientExampleImpl() {
+		return new SolrJHttpSolrClientExample();
 	}
 	
 	@Bean

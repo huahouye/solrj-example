@@ -13,8 +13,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.core.env.Environment;
 
-import com.huahouye.solrj.example.app.config.AppConfig;
-
 /**
  * CloudSolrClient 连接 SolrCloud 的例子
  * 
@@ -43,16 +41,4 @@ public class SolrJCloudSolrClientExample {
 		QueryResponse response = solr.query(env.getProperty("solr.default.collection"), params);
 		System.out.println("response = " + response);
 	}
-
-	public static void main(String[] args) throws SolrServerException, IOException {
-		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
-		ctx.register(AppConfig.class);
-		ctx.refresh();
-		System.out.println(Arrays.toString(ctx.getBeanDefinitionNames()));
-		SolrJCloudSolrClientExample service = (SolrJCloudSolrClientExample) ctx
-				.getBean("solrJCloudSolrClientExample");
-		service.execute();
-		ctx.close();
-	}
-
 }
