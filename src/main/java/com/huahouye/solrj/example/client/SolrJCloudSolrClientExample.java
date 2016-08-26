@@ -36,11 +36,11 @@ public class SolrJCloudSolrClientExample {
 
 		ModifiableSolrParams params = new ModifiableSolrParams();
 		params.set("qt", "/select");
-		params.set("q", "id:2");
-		params.set("fl", "id,responseCode");
+		params.set("q", "id:ff808081545aa1ba01545aa1c8150256");
+		params.set("fl", "id,keyWords");
 
 		// SolrCloud 模式先要给定第一个参数，表示对吗一个 collection 进行操作，否者会报错。
-		QueryResponse response = solr.query("weshop", params);
+		QueryResponse response = solr.query(env.getProperty("solr.default.collection"), params);
 		System.out.println("response = " + response);
 	}
 
